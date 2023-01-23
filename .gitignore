@@ -23,3 +23,4 @@ examples/classifier_comp.pdf
 examples/comparison.csv
 scripts/comparison.csv
 py_earth.egg-info
+sklearn_contrib_py_earth.egg-info
