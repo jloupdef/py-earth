@@ -25,6 +25,7 @@ jobs:
           pip install pytest wheel setuptools
           python setup.py egg_info
           pip install `grep -v '^\[' *.egg-info/requires.txt`
+          python setup.py build_ext --inplace --cythonize
           pip install .
       - name: Test with pytest
         run: |

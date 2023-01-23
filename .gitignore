@@ -12,7 +12,7 @@
 MANIFEST
 dist
 build
-dist/py-earth-0.1.0.tar.gz
+dist/*
 doc/Humor-Sans.ttf
 doc/_build/*
 doc/hinge.png
@@ -24,3 +24,4 @@ examples/comparison.csv
 scripts/comparison.csv
 py_earth.egg-info
 sklearn_contrib_py_earth.egg-info
+*.c
