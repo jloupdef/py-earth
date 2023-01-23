@@ -36,4 +36,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: wheel-package
-          path: *.whl
+          path: dist/*.whl
+      - name: Keep c source as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: c-source
+          path: pyearth/*.c
