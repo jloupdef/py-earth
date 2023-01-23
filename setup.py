@@ -135,7 +135,7 @@ def setup_package():
         'extras_require': {'docs': ['sphinx_gallery'],
                            'dev': ['cython'],
                            'export': ['sympy'],
-                           'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy']},
+                           'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'nose']},
         'setup_requires': ['numpy'],
         'include_package_data': True
     }
