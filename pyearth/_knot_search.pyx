@@ -3,6 +3,8 @@
 # cython: boundscheck = False
 # cython: wraparound = False
 # cython: profile = True
+# cython: language_level=3
+
 cimport cython
 import numpy as np
 import scipy as sp

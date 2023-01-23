@@ -3,6 +3,8 @@
 # cython: boundscheck = False
 # cython: wraparound = False
 # cython: profile = False
+# cython: language_level=3
+
 
 from ._util cimport gcv, ascii_table
 

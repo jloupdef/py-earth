@@ -3,6 +3,8 @@
 # cython: boundscheck = False
 # cython: wraparound = False
 # cython: profile = False
+# cython: language_level=3
+
 
 from ._util cimport gcv_adjust, log2, apply_weights_1d, apply_weights_slice
 from ._basis cimport (Basis, BasisFunction, ConstantBasisFunction,
