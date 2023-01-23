@@ -3,7 +3,7 @@
 # cython: boundscheck = False
 # cython: wraparound = False
 # cython: profile = False
-# cython: language_level=3
+# cython: language_level=2
 
 import numpy as np
 from scipy.linalg.cython_lapack cimport dlarfg, dlarft, dlarfb

@@ -3,7 +3,7 @@
 # cython: boundscheck = False
 # cython: wraparound = False
 # cython: profile = False
-# cython: language_level=3
+# cython: language_level=2
 
 from ._util cimport log2, apply_weights_2d
 from libc.math cimport log

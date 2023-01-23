@@ -3,7 +3,7 @@
 # cython: boundscheck = False
 # cython: wraparound = False
 # cython: profile = True
-# cython: language_level=3
+# cython: language_level=2
 
 cimport cython
 import numpy as np
