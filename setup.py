@@ -136,7 +136,7 @@ def setup_package():
                            'dev': ['cython'],
                            'export': ['sympy'],
                            'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'nose']},
-        'setup_requires': ['numpy'],
+        'setup_requires': ['numpy<=1.23.5'],
         'include_package_data': True
     }
 
