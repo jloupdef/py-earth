@@ -130,13 +130,13 @@ def setup_package():
         'install_requires': [
             'scipy >= 0.16',
             'scikit-learn >= 0.16',
-            'six'
+            'six',
+            'numpy<=1.23.5',
             ],
         'extras_require': {'docs': ['sphinx_gallery'],
                            'dev': ['cython'],
                            'export': ['sympy'],
                            'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'nose']},
-        'setup_requires': ['numpy<=1.23.5'],
         'include_package_data': True
     }
 
