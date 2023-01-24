@@ -149,7 +149,7 @@ def setup_package():
             'numpy<=1.23.5',
             ],
         'extras_require': {'docs': ['sphinx_gallery'],
-                           'dev': ['cython'],
+                           'dev': ['cython==3.0.0a11'],
                            'export': ['sympy'],
                            'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'nose']},
         'include_package_data': True
