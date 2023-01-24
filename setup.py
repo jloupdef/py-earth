@@ -16,6 +16,8 @@ def get_ext_modules():
     local_inc = 'pyearth'
     numpy_inc = numpy.get_include()
 
+    macros = [] # [("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]
+
     # Set up the ext_modules for Cython or not, depending
     if cythonize_switch:
         from Cython.Build import cythonize
@@ -26,44 +28,44 @@ def get_ext_modules():
                  ["pyearth/_types.pyx"],
                  include_dirs=[local_inc,
                                numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._util", ["pyearth/_util.pyx"], include_dirs=[numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
              Extension(
                  "pyearth._basis",
                  ["pyearth/_basis.pyx"],
                  include_dirs=[numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
              Extension(
                  "pyearth._record",
                  ["pyearth/_record.pyx"],
                  include_dirs=[numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
              Extension(
                  "pyearth._pruning",
                  ["pyearth/_pruning.pyx"],
                  include_dirs=[local_inc,
                                numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
              Extension(
                  "pyearth._forward",
                  ["pyearth/_forward.pyx"],
                  include_dirs=[local_inc,
                                numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
              Extension(
                  "pyearth._knot_search",
                  ["pyearth/_knot_search.pyx"],
                  include_dirs=[local_inc,
                                numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
              Extension(
                  "pyearth._qr",
                  ["pyearth/_qr.pyx"],
                  include_dirs=[local_inc,
                                numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")])
+                define_macros=macros)
              ])
     else:
         ext_modules = [
@@ -72,43 +74,43 @@ def get_ext_modules():
                 ["pyearth/_types.c"],
                 include_dirs=[local_inc,
                               numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._util", ["pyearth/_util.c"], include_dirs=[numpy_inc]),
             Extension(
                 "pyearth._basis",
                 ["pyearth/_basis.c"],
                 include_dirs=[numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._record",
                 ["pyearth/_record.c"],
                 include_dirs=[numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._pruning",
                 ["pyearth/_pruning.c"],
                 include_dirs=[local_inc,
                               numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._forward",
                 ["pyearth/_forward.c"],
                 include_dirs=[local_inc,
                               numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._knot_search",
                 ["pyearth/_knot_search.c"],
                 include_dirs=[local_inc,
                               numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+                define_macros=macros),
             Extension(
                 "pyearth._qr",
                 ["pyearth/_qr.c"],
                 include_dirs=[local_inc,
                               numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")])
+                define_macros=macros)
         ]
     return ext_modules
 
@@ -151,7 +153,7 @@ def setup_package():
             'numpy<=1.23.5',
             ],
         'extras_require': {'docs': ['sphinx_gallery'],
-                           'dev': ['cython==3.0.0a11'],
+                           'dev': ['cython'],
                            'export': ['sympy'],
                            'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'nose']},
         'include_package_data': True
