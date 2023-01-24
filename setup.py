@@ -20,7 +20,14 @@ def get_ext_modules():
     if cythonize_switch:
         from Cython.Build import cythonize
         ext_modules = cythonize(
-            [Extension(
+            [
+             Extension(
+                 "pyearth._types",
+                 ["pyearth/_types.pyx"],
+                 include_dirs=[local_inc,
+                               numpy_inc],
+                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+            Extension(
                 "pyearth._util", ["pyearth/_util.pyx"], include_dirs=[numpy_inc],
                 define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
              Extension(
@@ -56,17 +63,18 @@ def get_ext_modules():
                  ["pyearth/_qr.pyx"],
                  include_dirs=[local_inc,
                                numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
-             Extension(
-                 "pyearth._types",
-                 ["pyearth/_types.pyx"],
-                 include_dirs=[local_inc,
-                               numpy_inc],
                 define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")])
              ])
     else:
-        ext_modules = [Extension(
-            "pyearth._util", ["pyearth/_util.c"], include_dirs=[numpy_inc]),
+        ext_modules = [
+            Extension(
+                "pyearth._types",
+                ["pyearth/_types.c"],
+                include_dirs=[local_inc,
+                              numpy_inc],
+                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
+            Extension(
+                "pyearth._util", ["pyearth/_util.c"], include_dirs=[numpy_inc]),
             Extension(
                 "pyearth._basis",
                 ["pyearth/_basis.c"],
@@ -98,12 +106,6 @@ def get_ext_modules():
             Extension(
                 "pyearth._qr",
                 ["pyearth/_qr.c"],
-                include_dirs=[local_inc,
-                              numpy_inc],
-                define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]),
-            Extension(
-                "pyearth._types",
-                ["pyearth/_types.c"],
                 include_dirs=[local_inc,
                               numpy_inc],
                 define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")])
