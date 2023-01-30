@@ -14,17 +14,15 @@ class Container(BaseContainer):
 
 
 def test_apply():
-    import logging
     cnt = Container()
     m, _ = cnt.X.shape
     missing = numpy.zeros_like(cnt.X, dtype=BOOL)
     B = numpy.empty(shape=(m, 10))
-    logging.error(B)
-    logging.error(B[:, 0])
+    # in case np.empty returned 1.0 values, replace them
+    # (low probability in theory but happens a lot in reality)
+    B[B == 1] = 42
     assert numpy.all(B[:, 0] != 1)
     cnt.bf.apply(cnt.X, missing, B[:, 0])
-    logging.error(B)
-    logging.error(B[:, 0])
     assert numpy.all(B[:, 0] == 1)
 
 
