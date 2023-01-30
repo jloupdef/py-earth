@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip 
-        pip install pytest wheel setuptools sphinx_gallery cython sympy pandas statsmodels patsy sympy pytest
+        pip install pytest wheel setuptools "scipy>=0.16" "scikit-learn>=0.16" six "numpy<=1.23.5" sphinx_gallery cython sympy pandas statsmodels patsy sympy pytest
         python setup.py build_ext --inplace --cythonize
     - name: Tests
       run: |
@@ -65,7 +65,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest wheel setuptools sphinx_gallery cython sympy pandas statsmodels patsy sympy pytest
+        pip install pytest wheel setuptools "scipy>=0.16" "scikit-learn>=0.16" six "numpy<=1.23.5" sphinx_gallery cython sympy pandas statsmodels patsy sympy pytest
         python setup.py build_ext --inplace --cythonize
     - name: Tests
       run: |
