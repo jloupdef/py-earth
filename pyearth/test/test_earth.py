@@ -20,7 +20,7 @@ from pyearth._basis import (Basis, ConstantBasisFunction,
                             HingeBasisFunction, LinearBasisFunction)
 from pyearth import Earth
 import pyearth
-from numpy.testing.utils import assert_array_almost_equal
+from numpy.testing import assert_array_almost_equal
 
 regenerate_target_files = False
 
@@ -201,7 +201,7 @@ def test_linvars():
     with open(filename, "r") as fl:
         prev = float(fl.read())
 
-    assert res == pytest.approx(prev, abs=1e-places)
+    assert res == pytest.approx(prev, abs=1e-7)
 
 def test_linvars_coefs():
     nb_vars = 11
