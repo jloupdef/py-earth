@@ -107,4 +107,4 @@ def assert_list_almost_equal(list1, list2):
 
 def assert_list_almost_equal_value(list, value):
     for el in list:
-        assert el1== pytest.approx(value, abs=1e-7)
+        assert el == pytest.approx(value, abs=1e-7)
