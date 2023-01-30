@@ -28,7 +28,7 @@ jobs:
           python setup.py build_ext --inplace --cythonize
       - name: Tests
         run: |
-          nosetests -s -v pyearth
+          pytest -s -v pyearth
       - name: Build wheel
         run: |
           python setup.py sdist bdist_wheel

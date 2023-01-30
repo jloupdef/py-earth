@@ -2,8 +2,9 @@ from pyearth._basis import (Basis, ConstantBasisFunction, HingeBasisFunction,
                             LinearBasisFunction)
 from pyearth.export import export_python_function, export_python_string,\
     export_sympy
-from nose.tools import assert_almost_equal
+
 import numpy
+import pytest
 import six
 from pyearth import Earth
 from pyearth._types import BOOL
@@ -42,7 +43,7 @@ def test_export_python_function():
         model = Earth(penalty=1, smooth=smooth, max_degree=2).fit(X, y)
         export_model = export_python_function(model)
         for exp_pred, model_pred in zip(model.predict(X), export_model(X)):
-            assert_almost_equal(exp_pred, model_pred)
+            assert exp_pred == pytest.approx(model_pred, abs=1e-7)
 
 
 def test_export_python_string():
@@ -51,7 +52,7 @@ def test_export_python_string():
         export_model = export_python_string(model, 'my_test_model')
         six.exec_(export_model, globals())
         for exp_pred, model_pred in zip(model.predict(X), my_test_model(X)):
-            assert_almost_equal(exp_pred, model_pred)
+            assert exp_pred == pytest.approx(model_pred, abs=1e-7)
 
 @if_pandas
 @if_sympy
@@ -96,13 +97,3 @@ def test_export_sympy():
 
             y_pred = model.predict(X_df)[:,i] if n_cols > 1 else model.predict(X_df)
             assert_array_almost_equal(y_pred, y_pred_sympy)
-
-if __name__ == '__main__':
-    import sys
-    import nose
-    # This code will run the test in this file.'
-    module_name = sys.modules[__name__].__file__
-     
-    result = nose.run(argv=[sys.argv[0],
-                            module_name,
-                            '-s', '-v'])

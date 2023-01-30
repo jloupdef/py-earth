@@ -1,8 +1,6 @@
 import pickle
 import numpy
 
-from nose.tools import assert_equal
-
 from .base import BaseContainer
 from pyearth._types import BOOL
 from pyearth._basis import SmoothedHingeBasisFunction, ConstantBasisFunction
@@ -36,20 +34,20 @@ def test_getters():
 def test_pickle_compatibility():
     cnt = Container()
     bf_copy = pickle.loads(pickle.dumps(cnt.bf1))
-    assert_equal(cnt.bf1, bf_copy)
+    assert cnt.bf1 == bf_copy
 
 
 def test_smoothed_version():
     cnt = Container()
     translation = {cnt.parent: cnt.parent._smoothed_version(None, {}, {})}
     smoothed = cnt.bf1._smoothed_version(cnt.parent, {}, translation)
-    assert_equal(cnt.bf1, smoothed)
+    assert cnt.bf1 == smoothed
 
 
 def test_degree():
     cnt = Container()
-    assert_equal(cnt.bf1.degree(), 1)
-    assert_equal(cnt.bf2.degree(), 1)
+    assert cnt.bf1.degree() == 1
+    assert cnt.bf2.degree() == 1
 
 
 def test_p_r():
@@ -58,10 +56,10 @@ def test_p_r():
     rplus = (2 * 1.0 - 3.0 - 0.0) / ((3.0 - 0.0)**3)
     pminus = (3 * 1.0 - 2 * 0.0 - 3.0) / ((0.0 - 3.0)**2)
     rminus = (0.0 + 3.0 - 2 * 1.0) / ((0.0 - 3.0)**3)
-    assert_equal(cnt.bf1.get_p(), pplus)
-    assert_equal(cnt.bf1.get_r(), rplus)
-    assert_equal(cnt.bf2.get_p(), pminus)
-    assert_equal(cnt.bf2.get_r(), rminus)
+    assert cnt.bf1.get_p() == pplus
+    assert cnt.bf1.get_r() == rplus
+    assert cnt.bf2.get_p() == pminus
+    assert cnt.bf2.get_r() == rminus
 
 
 def test_apply():

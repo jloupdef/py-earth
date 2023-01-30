@@ -1,6 +1,5 @@
 import pickle
 import os
-from nose.tools import assert_true, assert_false, assert_equal
 
 import numpy
 

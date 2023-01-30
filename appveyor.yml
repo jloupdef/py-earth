@@ -65,7 +65,7 @@ install:
   - "rmdir C:\\cygwin /s /q"
 
   # Install the build and runtime dependencies of the project.
-  - "conda install --quiet --yes six numpy pandas sympy scipy cython nose scikit-learn wheel conda-build"
+  - "conda install --quiet --yes six numpy pandas sympy scipy cython pytest scikit-learn wheel conda-build"
   - "pip install sphinx-gallery"
   - "python setup.py bdist_wheel bdist_wininst"
   - "python setup.py build_ext --inplace --cythonize"
@@ -84,7 +84,7 @@ test_script:
   - "mkdir empty_folder"
   - "cd empty_folder"
 
-  - "python -c \"import nose; nose.main()\" -s -v pyearth"
+  - "python -c \"import pytest; pytest.main()\" -s -v pyearth"
 
     # Move back to the project folder
   - "cd .."

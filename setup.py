@@ -155,7 +155,7 @@ def setup_package():
         'extras_require': {'docs': ['sphinx_gallery'],
                            'dev': ['cython'],
                            'export': ['sympy'],
-                           'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'nose']},
+                           'all_tests': ['pandas', 'statsmodels', 'patsy', 'sympy', 'pytest']},
         'include_package_data': True
     }
 
