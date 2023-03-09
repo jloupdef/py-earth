@@ -1,6 +1,6 @@
 package:
   name: pyearth
-  version: "0.1"
+  version: "0.2+smartleak"
 
 source:
   git_url: https://github.com/scikit-learn-contrib/py-earth.git

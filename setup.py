@@ -123,7 +123,7 @@ def setup_package():
         'author_email': 'jcrudy@gmail.com',
         'packages': find_packages(),
         'license': 'LICENSE.txt',
-        'download_url': 'https://github.com/scikit-learn-contrib/py-earth/archive/0.1.tar.gz',
+        'download_url': 'https://github.com/scikit-learn-contrib/py-earth/archive/0.2+smartleak.tar.gz',
         'description':
         'A Python implementation of Jerome Friedman\'s Multivariate Adaptive Regression Splines.',
         'long_description': codecs.open('README.md', mode='r', encoding='utf-8').read(),
