@@ -10,7 +10,7 @@ jobs:
 
     runs-on: ubuntu-20.04
     strategy:
-      max-parallel: 1
+      max-parallel: 4
       matrix:
         python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
 
@@ -45,7 +45,7 @@ jobs:
   build-windows:
     runs-on: windows-latest
     strategy:
-      max-parallel: 1
+      max-parallel: 4
       matrix:
         python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
 
